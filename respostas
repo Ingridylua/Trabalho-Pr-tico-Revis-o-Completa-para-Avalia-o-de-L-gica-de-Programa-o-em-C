@@ -1,0 +1,112 @@
+Trabalho Prático — Revisão Completa para Avaliação de Lógica de Programação em C
+
+
+Questão 1 — Pensamento Computacional
+
+A) O que é pensamento computacional?
+
+
+resposta: O pensamento computacional é uma forma de pensar para resolver problemas usando lógica e organização, permitindo criar soluções que o computador consiga executar.
+Ele ajuda a analisar problemas, dividir tarefas e criar passos organizados para chegar à solução.
+
+
+B) Explique os conceitos: Resposta
+
+
+Decomposição: Consiste em dividir um problema grande em partes menores e mais simples. Isso facilita entender e resolver cada parte separadamente.
+
+
+Reconhecimento de padrões: É identificar repetições, semelhanças ou soluções parecidas em problemas diferentes. Assim, fica mais fácil encontrar respostas mais rápidas.
+
+
+Abstração: Significa focar apenas nas informações mais importantes do problema, ignorando detalhes desnecessários. Isso ajuda a tomar decisões melhores.
+
+
+Algoritmos: São sequências de passos organizados para resolver um problema ou executar uma tarefa. Um exemplo são as contas matemáticas feitas seguindo etapas.
+
+
+Questão 2 — Tabela Verdade
+
+A) O resultado só será verdadeiro quando os dois valores forem verdadeiros.
+
+| p | q | p && q |
+| - | - | ------ |
+| V | V | V      |
+| V | F | F      |
+| F | V | F      |
+| F | F | F      |
+
+B) O resultado será verdadeiro quando pelo menos um valor for verdadeiro.
+
+| p | q | p || q |
+| - | - | ------ |
+| V | V | V      |
+| V | F | V      |
+| F | V | V      |
+| F | F | F      |
+
+PARTE 3 — Programação Prática -código-fonte.
+
+#include <stdio.h>
+
+int main() {
+
+    int idades[10];
+    int autorizacao;
+
+    int i;
+
+    int liberados = 0;
+    int negados = 0;
+
+    int maiorIdade = 0;
+
+    int somaIdades = 0;
+    float media;
+
+   
+    for(i = 0; i < 10; i++) {
+
+        printf("PARTICIPANTE %d\n", i + 1);
+
+        
+        printf("Digite a idade: ");
+        scanf("%d", &idades[i]);
+
+        
+        printf("Possui autorizacao? (1 = sim / 0 = nao): ");
+        scanf("%d", &autorizacao);
+
+        
+        if(idades[i] >= 18 || autorizacao == 1) {
+
+            printf("ENTRADA LIBERADA\n");
+
+            liberados++;
+
+        } else {
+
+            printf("ENTRADA NEGADA\n");
+
+            negados++;
+        }
+
+        
+        somaIdades = somaIdades + idades[i];
+
+        
+        if(idades[i] > maiorIdade) {
+
+            maiorIdade = idades[i];
+        }
+    }
+
+    
+    media = somaIdades / 10.0;
+
+    return 0;
+}
+
+
+
+
